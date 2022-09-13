@@ -6,8 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.kim.store.R
+import com.kim.store.adapters.ChickenStoreListAdapter
+import com.kim.store.datas.Store
+import kotlinx.android.synthetic.main.fragment_chicken_store_list.*
 
 class ChickenStoreListFragment : Fragment() {
+
+    val mChickenStoreList = ArrayList<Store>()
+
+    lateinit var mChickenStoreListAdapter: ChickenStoreListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -20,5 +27,13 @@ class ChickenStoreListFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        mChickenStoreList.add( Store("A치킨가게","111-2222","https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA5MDJfOTAg%2FMDAxNjYyMTI1NzA3NDk4.Hj0ZKgefFmTCSt9obA4lPc_VH2cRnQ0pCFCR-FcnfY4g.cDt5aYbS0__Iihpi5LkGJCO3GbQIX-Y37fBh4T9FKCIg.JPEG.lloovveesss%2F20220902%25A3%25DF211346.jpg&type=a340"))
+        mChickenStoreList.add( Store("B치킨가게","111-2222","https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA5MDJfOTAg%2FMDAxNjYyMTI1NzA3NDk4.Hj0ZKgefFmTCSt9obA4lPc_VH2cRnQ0pCFCR-FcnfY4g.cDt5aYbS0__Iihpi5LkGJCO3GbQIX-Y37fBh4T9FKCIg.JPEG.lloovveesss%2F20220902%25A3%25DF211346.jpg&type=a340"))
+        mChickenStoreList.add( Store("C치킨가게","111-2222","https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA5MDJfOTAg%2FMDAxNjYyMTI1NzA3NDk4.Hj0ZKgefFmTCSt9obA4lPc_VH2cRnQ0pCFCR-FcnfY4g.cDt5aYbS0__Iihpi5LkGJCO3GbQIX-Y37fBh4T9FKCIg.JPEG.lloovveesss%2F20220902%25A3%25DF211346.jpg&type=a340"))
+        mChickenStoreList.add( Store("D치킨가게","111-2222","https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA5MDJfOTAg%2FMDAxNjYyMTI1NzA3NDk4.Hj0ZKgefFmTCSt9obA4lPc_VH2cRnQ0pCFCR-FcnfY4g.cDt5aYbS0__Iihpi5LkGJCO3GbQIX-Y37fBh4T9FKCIg.JPEG.lloovveesss%2F20220902%25A3%25DF211346.jpg&type=a340"))
+
+        mChickenStoreListAdapter = ChickenStoreListAdapter(requireContext(), R.layout.chicken_store_list_item, mChickenStoreList)
+        chickenListView.adapter = mChickenStoreListAdapter
     }
 }
