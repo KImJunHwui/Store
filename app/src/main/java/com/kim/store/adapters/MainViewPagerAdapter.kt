@@ -12,8 +12,8 @@ class MainViewPagerAdapter(fm : FragmentManager) : FragmentPagerAdapter(fm) {
 
         return when(position){
 
-            1->"피자 가게"
-            else->"치킨 가게"
+            0->"치킨 가게"
+            else->"피자 가게"
         }
 
     }
@@ -25,8 +25,8 @@ class MainViewPagerAdapter(fm : FragmentManager) : FragmentPagerAdapter(fm) {
     override fun getItem(position: Int): Fragment {
         return when(position){
 
-            1->PizzaStoreListFragment()
-            else->ChickenStoreListFragment()
+            0->ChickenStoreListFragment()
+            else->PizzaStoreListFragment()
         }
     }
 }

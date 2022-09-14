@@ -1,10 +1,12 @@
 package com.kim.store.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.kim.store.ChickenViewDetailActivity
 import com.kim.store.R
 import com.kim.store.adapters.ChickenStoreListAdapter
 import com.kim.store.datas.Store
@@ -35,5 +37,16 @@ class ChickenStoreListFragment : Fragment() {
 
         mChickenStoreListAdapter = ChickenStoreListAdapter(requireContext(), R.layout.chicken_store_list_item, mChickenStoreList)
         chickenListView.adapter = mChickenStoreListAdapter
+
+
+        chickenListView.setOnItemClickListener { parent, view, position, id ->
+
+            val clickedChicken = mChickenStoreList[position]
+
+            val myIntent = Intent(requireContext(), ChickenViewDetailActivity::class.java)
+            myIntent.putExtra("chicken",clickedChicken)
+            startActivity(myIntent)
+
+    }
     }
 }
