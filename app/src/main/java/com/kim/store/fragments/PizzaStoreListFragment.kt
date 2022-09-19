@@ -1,10 +1,12 @@
 package com.kim.store.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.kim.store.PizzaViewDetailActivity
 import com.kim.store.R
 import com.kim.store.adapters.PizzaStoreListAdapter
 import com.kim.store.datas.Store
@@ -36,6 +38,16 @@ class PizzaStoreListFragment : Fragment() {
 
         mPizzaStoreListAdapter = PizzaStoreListAdapter(requireContext(), R.layout.pizza_store_list_item,mPizzaStoreList)
         pizzaListView.adapter = mPizzaStoreListAdapter
+
+        pizzaListView.setOnItemClickListener { parent, view, position, id ->
+
+            val clickedPizza = mPizzaStoreList[position]
+
+            val myIntent = Intent(requireContext(), PizzaViewDetailActivity::class.java)
+            myIntent.putExtra("pizza",clickedPizza)
+            startActivity(myIntent)
+
+        }
 
 
 
